@@ -1,0 +1,29 @@
+PODS:
+  - android_azure_plugin (0.0.1):
+    - AzureNotificationHubs-iOS
+    - Flutter
+  - AzureNotificationHubs-iOS (3.1.5)
+  - Flutter (1.0.0)
+
+DEPENDENCIES:
+  - android_azure_plugin (from `.symlinks/plugins/android_azure_plugin/ios`)
+  - Flutter (from `Flutter`)
+
+SPEC REPOS:
+  trunk:
+    - AzureNotificationHubs-iOS
+
+EXTERNAL SOURCES:
+  android_azure_plugin:
+    :path: ".symlinks/plugins/android_azure_plugin/ios"
+  Flutter:
+    :path: Flutter
+
+SPEC CHECKSUMS:
+  android_azure_plugin: babad7483a06ccf4ffc09be232b21a796cfe0b78
+  AzureNotificationHubs-iOS: e5de62f44d7915a5cc3c5194ddc57cf2ee78873e
+  Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
+
+PODFILE CHECKSUM: 663715e941f9adb426e33bf9376914006f9ea95b
+
+COCOAPODS: 1.12.0
