@@ -20,7 +20,9 @@ static const MethodChannel methodChannel =  MethodChannel('android_azure_plugin'
   }
 
  
-  void configure({
+  void configure(String notitficationId,
+    
+    {
     required MessageHandler onMessage,
     required MessageHandler onResume,
     required MessageHandler onLaunch,
@@ -31,7 +33,8 @@ static const MethodChannel methodChannel =  MethodChannel('android_azure_plugin'
     _onLaunch = onLaunch;
     _onToken = onToken;
     methodChannel.setMethodCallHandler(_handleMethod);
-    methodChannel.invokeMethod<void>('configure');
+    methodChannel.invokeMethod<void>('configure', {
+        'notificationId': notitficationId},   );
   }
 
 

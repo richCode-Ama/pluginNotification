@@ -6,6 +6,7 @@
   FlutterMethodChannel *_channel;
   NSDictionary *_launchNotification;
   BOOL _resumingFromBackground;
+  NSString *_notificationId;
 }
 
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
@@ -28,6 +29,12 @@
 
 - (void)handleMethodCall:(FlutterMethodCall*)call result:(FlutterResult)result {
   if ([@"configure" isEqualToString:call.method]) {
+
+   
+     _notificationId = call.arguments[@"notificationId"];
+     NSLog(@"c-print is herer");
+   
+     NSLog(@"Notification ID: %@", _notificationId);
     [self handleRegister];
     if (_launchNotification != nil) {
       [_channel invokeMethod:@"onLaunch" arguments:_launchNotification];
@@ -58,8 +65,8 @@
 
 - (void) application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
   NSString *token = [self stringWithDeviceToken:deviceToken];
-  NSString *deviceTag = [@"device:" stringByAppendingString:token];
-  NSArray *tags = @[deviceTag];
+  NSString *deviceTag = @"333333";
+  NSArray *tags = @[deviceTag, @"_notificationId"];
   SBNotificationHub* hub = [self getNotificationHub];
   [hub registerNativeWithDeviceToken:deviceToken tags:tags completion:^(NSError* error) {
     if (error != nil) {
